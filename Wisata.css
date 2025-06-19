@@ -1,0 +1,320 @@
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #f9fafb; /* bg-base-100 dari index.html */
+    color: #333;
+}
+/* --- STYLES UNTUK NAVBAR BARU --- */
+
+/* Style untuk link aktif di Navbar Desktop */
+#desktop-nav-links .nav-link.active {
+    background-color: #0369a1; /* Tailwind sky-700 */
+    color: white;
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+}
+
+/* Style untuk link aktif di Navbar Mobile (Bottom Nav) */
+#mobile-nav-links .nav-link-mobile.active {
+    background-color: #eff6ff; /* Tailwind blue-50 */
+}
+
+#mobile-nav-links .nav-link-mobile.active svg,
+#mobile-nav-links .nav-link-mobile.active span {
+    color: #2563eb; /* Tailwind blue-600 */
+}
+
+/* Menambahkan padding-bottom pada body untuk memberi ruang bagi bottom nav di mobile */
+@media (max-width: 1023px) {
+    body {
+        padding-bottom: 4rem; /* Tinggi bottom nav (h-16) */
+    }
+}
+
+/* --- AKHIR STYLES UNTUK NAVBAR BARU --- */
+/* Custom styles for modal */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1000; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0,0,0,0.5); /* Black w/ opacity */
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.location {
+    font-size: 0.9rem;
+    color: #4b5563; /* text-gray-600 */
+    margin-bottom: 0.5rem;
+}
+
+.rating {
+    color: #fbbf24; /* text-yellow-400 */
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+}
+.modal[open] {
+    opacity: 1;
+    visibility: visible;
+}
+.modal-content {
+    background-color: #ffffff;
+    margin: auto;
+    padding: 2rem;
+    border-radius: 1rem;
+    width: 90%; /* Responsive width */
+    max-width: 800px; /* Max width for larger screens */
+    box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.2);
+    position: relative;
+    max-height: 90vh; /* Max height for scrollable content */
+    overflow-y: auto; /* Enable vertical scrolling */
+}
+.modal-box { /* Styles from index.html for general modal-box */
+    background-color: white;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    max-width: 96%;
+    max-height: 90%;
+    overflow-y: auto;
+    position: relative;
+}
+@media (min-width: 640px) {
+    .modal-box {
+        max-width: 42rem; /* max-w-4xl */
+    }
+}
+
+.close-button {
+    color: #aaa;
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+    font-size: 2rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+.close-button:hover,
+.close-button:focus {
+    color: #000;
+    text-decoration: none;
+}
+.loading-spinner {
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #3498db;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+    margin: 20px auto;
+}
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+/* Custom styles for active navigation link */
+.nav-link.active {
+    font-weight: 600;
+}
+
+/* --- STYLES UNTUK GELOMBANG OMBAK (VERSI HALUS) --- */
+.container-gelombang-png {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    background: #0ea5e9;
+    overflow: hidden;
+}
+
+/* Style dasar untuk setiap lapisan gelombang */
+.container-gelombang-png .gelombang-png {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    background-image: url("Images/wave.png");
+    background-size: 1000px 100px;
+}
+
+/* Pengaturan untuk setiap lapisan gelombang */
+.container-gelombang-png .gelombang1 {
+    animation: animate-gelombang-1 30s linear infinite;
+    z-index: 10;
+    opacity: 1;
+    animation-delay: 0s;
+    bottom: 0px;
+}
+
+.container-gelombang-png .gelombang2 {
+    animation: animate-gelombang-2 15s linear infinite;
+    z-index: 9;
+    opacity: 0.5;
+    bottom: 10px;
+    animation-delay: -5s;
+}
+
+.container-gelombang-png .gelombang3 {
+    animation: animate-gelombang-1 30s linear infinite;
+    z-index: 8;
+    opacity: 0.2;
+    bottom: 15px;
+    animation-delay: -2s;
+}
+
+.container-gelombang-png .gelombang4 {
+    animation: animate-gelombang-2 5s linear infinite;
+    z-index: 7;
+    opacity: 0.7;
+    bottom: 20px;
+    animation-delay: -5s;
+}
+
+/* Definisi animasi untuk gerakan ke kanan */
+@keyframes animate-gelombang-1 {
+    0% {
+        background-position-x: 0px;
+    }
+    100% {
+        background-position-x: 1000px;
+    }
+}
+
+/* Definisi animasi untuk gerakan ke kiri */
+@keyframes animate-gelombang-2 {
+    0% {
+        background-position-x: 0px;
+    }
+    100% {
+        background-position-x: -1000px;
+    }
+}
+/* --- AKHIR STYLES UNTUK GELOMBANG OMBAK --- */
+
+/* Styles from index.html (Adjusted for SIPDeskel) */
+.scroll-theme-primary::-webkit-scrollbar {
+    width: 8px;
+}
+.scroll-theme-primary::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+.scroll-theme-primary::-webkit-scrollbar-thumb {
+    background: #0ea5e9; /* primary color */
+    border-radius: 10px;
+}
+.scroll-theme-primary::-webkit-scrollbar-thumb:hover {
+    background: #0284c7; /* darker primary */
+}
+.prose img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+/* Custom styles to mimic the reference's primary color and other utilities */
+.bg-primary { background-color: #0ea5e9; } /* Sky 500 */
+.text-primary { color: #0ea5e9; }
+.border-primary { border-color: #0ea5e9; }
+.hover\:bg-sky-700:hover { background-color: #0369a1; }
+.bg-base-100 { background-color: #f9fafb; } /* Grey 50, but reference uses a lighter grey/white */
+.shadow-white { box-shadow: 0 1px 3px 0 rgba(255, 255, 255, 0.1), 0 1px 2px 0 rgba(255, 255, 255, 0.06); }
+
+/* Simple icons (replace with actual icon font if needed, for this example we'll use basic text) */
+/* Kept relevant icons that might still be used in the footer/modals */
+.icon-th::before { content: "☰"; }
+.icon-long-arrow-left::before { content: "←"; }
+.icon-ic_beranda::before { content: "🏠"; }
+.icon-ic_monografi::before { content: "📚"; }
+.icon-ic_statistik::before { content: "📊"; }
+.icon-ic_artikel::before { content: "📝"; }
+.icon-sun::before { content: "☀"; }
+.icon-brightness_2::before { content: "🌙"; }
+.icon-eye::before { content: "👁"; }
+.icon-calendar-o::before { content: "🗓"; }
+.icon-user::before { content: "👤"; }
+.icon-facebook::before { content: "📘"; }
+.icon-twitter::before { content: "🐦"; }
+.icon-whatsapp::before { content: "💬"; }
+.icon-telegram::before { content: "✈"; }
+.icon-arrow-left::before { content: "←"; }
+.icon-phone::before { content: "📞"; }
+.icon-envelope::before { content: "📧"; }
+
+/* Custom styles for sidebar-item (Still relevant if sidebar is desired) */
+/* Note: Since the user explicitly wants the provided header, the sidebar from index.html is removed.
+   These styles are kept for completeness in case the user decides to re-introduce similar elements,
+   but they are not actively used with the current HTML structure. */
+.sidebar-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    background-color: #f3f4f6; /* bg-gray-100 */
+    transition: all 0.3s ease;
+}
+.sidebar-item:hover {
+    background-color: #e5e7eb; /* bg-gray-200 */
+}
+.sidebar-item img, .sidebar-item i {
+    margin: auto;
+    text-align: center;
+    width: 3rem; /* size-12 */
+    height: 3rem; /* size-12 */
+}
+.sidebar-item h5 {
+    font-size: 0.875rem; /* text-sm */
+    font-weight: 600;
+    text-align: center;
+    margin-top: 0.25rem;
+}
+.prose {
+    font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    font-size: 1rem;
+    line-height: 1.75;
+    color: #374151; /* text-gray-700 */
+}
+.prose h4 {
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+}
+.prose p {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+.prose ul {
+    list-style-type: disc;
+    margin-left: 1.25rem;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+.modal-action {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 1rem;
+}
+.modal-action button {
+    padding: 0.5rem 1rem;
+    border-radius: 0.375rem;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    font-weight: 600;
+    cursor: pointer;
+}
+.btn-error {
+    background-color: #ef4444; /* Red 500 */
+    color: white;
+}
+.btn-error:hover {
+    background-color: #dc2626; /* Red 600 */
+}
